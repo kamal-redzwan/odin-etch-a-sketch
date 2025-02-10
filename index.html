@@ -8,6 +8,23 @@
   </head>
   <body>
     <h1>Etch-A-Sketch</h1>
+    <div class="controls-wrapper">
+      <label for="grid-size">Grid Size (1 - 100): </label>
+      <input
+        type="number"
+        name="grid-size"
+        id="grid-size"
+        min="1"
+        max="100"
+        value="16"
+      />
+      <button onclick="createGrid()">Update Grid</button>
+      <select name="drawMode" id="drawMode">
+        <option value="hover">Hover & Draw</option>
+        <option value="click">Click to Draw</option>
+      </select>
+      <button onclick="clearGrid()">Clear Grid</button>
+    </div>
     <div class="grid-container"></div>
 
     <script src="script.js"></script>
