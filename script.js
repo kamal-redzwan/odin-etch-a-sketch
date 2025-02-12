@@ -36,6 +36,17 @@ function createGrid() {
   }
 }
 
+//// Rather than squares being the same color throughout the grid, randomize the squares’ RGB values with each interaction.
+
+// make a function so that it return a randomize color - prefer RGB value
+
+function getRandomColor() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
 // handle initial mouse press
 function handleMouseDown(e) {
   // only activate when in hover draw mode
@@ -62,9 +73,14 @@ function handleMouseClick(e) {
 
 function draw(e) {
   if (!isDrawing) return; // only draw when mouse is pressed
-  const color = document.querySelector('#color-picker').value;
-  console.log(e);
-  e.target.style.backgroundColor = color;
+  const colorMode = document.querySelector('#colorMode').value;
+
+  if (colorMode === 'selected-color') {
+    const color = document.querySelector('#color-picker').value;
+    e.target.style.backgroundColor = color;
+  } else if (colorMode === 'random-color') {
+    e.target.style.backgroundColor = getRandomColor();
+  }
 }
 
 // stop drawing when mouse is released
