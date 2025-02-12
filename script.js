@@ -62,7 +62,8 @@ function handleMouseClick(e) {
 
 function draw(e) {
   if (!isDrawing) return; // only draw when mouse is pressed
-  const color = 'black';
+  const color = document.querySelector('#color-picker').value;
+  console.log(e);
   e.target.style.backgroundColor = color;
 }
 
