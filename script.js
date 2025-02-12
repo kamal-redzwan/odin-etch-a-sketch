@@ -1,5 +1,3 @@
-const drawMode = document.querySelector('#drawMode').value;
-
 // to track when user is in drawing mode
 let isDrawing = false;
 
@@ -46,6 +44,7 @@ function getRandomColor() {
 
 // handle initial mouse press
 function handleMouseDown(e) {
+  const drawMode = document.querySelector('#drawMode').value;
   // only activate when in hover draw mode
   if (drawMode === 'hover') {
     isDrawing = true;
@@ -55,6 +54,7 @@ function handleMouseDown(e) {
 
 // handle mouse movement over pixels
 function handleMouseOver(e) {
+  const drawMode = document.querySelector('#drawMode').value;
   // only draw if in hover mode
   if (drawMode === 'hover') {
     draw(e);
@@ -63,6 +63,7 @@ function handleMouseOver(e) {
 
 // handle click event for toggle click mode
 function handleMouseClick(e) {
+  const drawMode = document.querySelector('#drawMode').value;
   if (drawMode === 'click') {
     draw(e);
   }
@@ -70,7 +71,8 @@ function handleMouseClick(e) {
 
 // drawing logic
 function draw(e) {
-  if (!isDrawing) return; // only draw when mouse is pressed
+  const drawMode = document.querySelector('#drawMode').value;
+  if (drawMode === 'hover' && !isDrawing) return; // check isDrawing for hover mode
   const colorMode = document.querySelector('#colorMode').value;
 
   // colorMode logic
@@ -91,6 +93,9 @@ function clearGrid() {
   const pixels = document.querySelectorAll('.pixel');
   pixels.forEach((pixel) => (pixel.style.backgroundColor = ''));
 }
+
+// create initial grid when page loads
+createGrid();
 
 // add global event listener
 document
