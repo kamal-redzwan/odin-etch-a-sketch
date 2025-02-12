@@ -71,10 +71,12 @@ function handleMouseClick(e) {
   }
 }
 
+// drawing logic
 function draw(e) {
   if (!isDrawing) return; // only draw when mouse is pressed
   const colorMode = document.querySelector('#colorMode').value;
 
+  // colorMode logic
   if (colorMode === 'selected-color') {
     const color = document.querySelector('#color-picker').value;
     e.target.style.backgroundColor = color;
