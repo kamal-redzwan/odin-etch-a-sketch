@@ -36,10 +36,7 @@ function createGrid() {
   }
 }
 
-//// Rather than squares being the same color throughout the grid, randomize the squares’ RGB values with each interaction.
-
-// make a function so that it return a randomize color - prefer RGB value
-
+// randomize color logic
 function getRandomColor() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
